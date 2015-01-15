@@ -5,7 +5,8 @@ RUN apt-get update && \
 
 RUN wget http://nodejs.org/dist/v0.10.29/node-v0.10.29-linux-x64.tar.gz && \
 	tar xzvf node-v* && cd node-v* && \
-	.\configure && \
-	make
+	./configure && \
+	make && \
+	sudo make install
 
 CMD["bash"]
