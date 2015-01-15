@@ -1,13 +1,10 @@
+## trading standalone
 FROM ubuntu:14.04
 
-RUN apt-get update && \
-  	apt-get upgrade && \
-  	apt-get install wget
+# install requirements
+ENV DEBIAN_FRONTEND noninteractive
 
-RUN wget http://nodejs.org/dist/v0.10.29/node-v0.10.29-linux-x64.tar.gz && \
-	tar xzvf node-v* && cd node-v* && \
-	./configure && \
-	make && \
-	sudo make install
-
-CMD ["bash"] 
+RUN \
+    apt-get update && \
+    apt-get install -y build-essential && \
+    sudo docker run -i -t ubuntu /bin/bash
