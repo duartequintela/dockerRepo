@@ -1,7 +1,7 @@
 FROM ubuntu:14.04
 
 RUN apt-get update && \
-  	apt-get -y upgrade && \
+  	apt-get upgrade && \
   	apt-get install wget
 
 RUN wget http://nodejs.org/dist/v0.10.29/node-v0.10.29-linux-x64.tar.gz && \
