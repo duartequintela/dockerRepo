@@ -1,10 +1,21 @@
 ## trading standalone
-FROM ubuntu:14.04
 
-# install requirements
-ENV DEBIAN_FRONTEND noninteractive
+FROM ubuntu:14.04
+RUN apt-get update
+RUN apt-get install -y wget git npm
+
+# Install Node.js
+RUN \
+cd /tmp && \
+wget http://nodejs.org/dist/v0.10.29/node-v0.10.29-linux-x64.tar.gz && \
+tar xvzf node-v0.10.29-linux-x64.tar.gz && \
+rm -f node-v0.10.29-linux-x64.tar.gz && \
+cd node-v0.10.29-linux-x64 && \
+echo -e '\n# Node.js\nexport PATH="/tmp/node-v0.10.29-linux-x64/bin:$PATH"' >> /root/.bashrc
+
 
 RUN \
-    apt-get update && \
-    #apt-get install -y build-essential && \
-    sudo docker run -i -t ubuntu /bin/bash
+cd /home
+
+
+CMD [ "bash" ]
