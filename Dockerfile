@@ -11,6 +11,8 @@ RUN apt-get -y install build-essential python-setuptools && \
   rm -rf /var/lib/apt/lists/* && \
   easy_install supervisor
 
+RUN mkdir /opt/api
+
 # Install Java.
 RUN \
   echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
